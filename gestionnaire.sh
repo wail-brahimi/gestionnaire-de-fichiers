@@ -1,7 +1,5 @@
 #!/bin/bash
 
- 
-
 # Menu principal
 
 while true; do
@@ -53,7 +51,8 @@ while true; do
             echo "Le fichier $nom_fichier1 a été créé dans le répertoire $repertoire_selec."
             break
             else
-            echo "Le répertoire n'existe pas. Veuillez choisir un répertoire valide."
+            echo "Le document selectionné n'est pas un repertoire ou il n'existe pas. "
+            echo "Veuillez choisir un répertoire valide. "
             fi
             
             read -p "Appuyez sur Entrée pour continuer..."
@@ -73,7 +72,7 @@ while true; do
             elif [ -f "$fichier" ]; then
             echo "Le document selectionné n'est pas un répertoire."
             else
-            cho "le repertoire n'existe pas"
+            echo "le repertoire n'existe pas"
             fi
                 
             read -p "Appuyez sur Entrée pour continuer..."   
@@ -104,9 +103,9 @@ while true; do
             ls "$repertoire_cible"
             read -p "Veuillez sélectionner le repertoire ou le fichier que vous souhaitez déplacer : " source
 
-            if [ -d "$source" ]; then
+            if [ -e "$source" ]; then
             read -p "Veuillez sélectionner la destination du déplacement : " destination
-            if [ -d "$destination" ]; then
+            if [ -e "$destination" ]; then
             mv "$source" "$destination"
             echo "Déplacement effectué avec succès."
             else
@@ -221,4 +220,3 @@ while true; do
             ;;
     esac
 done
-
